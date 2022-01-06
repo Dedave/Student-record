@@ -1,0 +1,61 @@
+<div class="row nav">
+  <div class="col-md-6 col-xl-6">
+     <h3 class="title">STUDENTIA</h3>
+  </div>
+  <div class="col-md-6 col-xl-6">
+     <ul>
+      <li routerLink="/">Home</li>
+      <li routerLink="/create-new">Create New</li>
+      <li routerLink="/">View All</li>
+     </ul>
+  </div>
+  </div>
+  
+  <h3 class="lbl">Add New Student</h3><br>
+
+<div class="container" >
+
+ <div class="card">
+  
+     <div class="card-body">
+      <form class="form-horizontal m-t-30" [formGroup]="studentForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="row">
+          
+            <div class="col-md-6 col-xl-6  ">
+        <label for="name" id="firstname">First Name</label>
+        <input type="text" id="firstname" formControlName="first_name" placeholder="First Name..."/>
+        <label for="name" id="lastname">Last Name</label>
+        <input type="text" id="lastname" formControlName="last_name" placeholder="Last Name..."/>
+        <label for="name" id="sex">Sex:&nbsp;</label>
+        <select formControlName="sex" class="form-select">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <!-- <input type="sex" id="sex" formControlName="password" placeholder="Password..."/> -->
+         </div>
+       <div class="col-md-6 col-xl-6  ">
+        <label for="name" id="faculty">Faculty</label>
+        <input type="text" id="faculty"  formControlName="faculty" placeholder="faculty..."/>
+        <label for="name" id="department">Department</label>
+        <input type="text" id="department" formControlName="department" placeholder="Department..."/>
+        <label for="name" id="level">Level:&nbsp;</label>
+        <select formControlName="level" class="form-select">
+            <option>100</option>
+            <option>200</option>
+            <option>300</option>
+            <option>400</option>
+            <option>500</option>
+        </select>
+        <br><button type="submit" id="submit">Add</button>
+      </div>
+         
+        </div>
+          <div >
+
+           </div>
+
+       </form>
+                 </div>
+                 </div>
+</div> 
+                        

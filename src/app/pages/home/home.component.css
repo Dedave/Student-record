@@ -1,0 +1,75 @@
+.container{
+    padding-top:30px;
+    padding-left: 100px;
+      width: 100%;
+    height: 100%;
+    border:solid white 10px; 
+}
+h3.lbl{
+  text-align: center;
+  color: rgb(14, 143, 126);
+}
+ table{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    margin-left: -40px;
+    margin-bottom: 20px;
+    border: rgb(14, 143, 126) 4px solid;
+    border-radius: 9px;
+}
+
+  th{
+    font-size: 20px;
+      padding-top: 3px;
+  }
+  th, td {
+    border-color: rgb(14, 143, 126);
+  }
+  tr.details:hover{
+      background-color: rgb(14, 143, 126);
+      color: white;
+      cursor: pointer;
+  } 
+  .btn{
+    border: 1px solid  rgb(14, 143, 126);
+    padding: 80px;
+    width: 100%;
+    height: 90%;
+    margin-left: -45px;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+}
+.btn:hover{
+    color: rgb(14, 143, 126);
+}
+#submit{
+  border: 1px solid rgb(14, 143, 126);
+}
+.nav{
+   background-color: rgb(14, 143, 126);
+  padding: 10px;
+  color: white;
+}
+.title{
+  border: 2px solid white;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-top: 5px;
+  margin-left: 20px;
+  width: 22%;
+  height:50px;
+  text-align: center;
+}
+
+li{
+  display: inline-block;
+  padding: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+li:hover{
+  border: 1px solid rgb(186, 243, 235);
+  border-radius: 10px;
+  cursor: pointer;
+}

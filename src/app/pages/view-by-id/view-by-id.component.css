@@ -1,0 +1,70 @@
+.container{
+  width: 60%;
+background-color: white;
+margin-left:auto;
+margin-top:15px;
+border: 3px solid  rgb(14, 143, 126);
+border-radius: 9px;
+  padding-top:30px;
+  padding-left:auto;
+  padding-bottom: 30px;
+  height: 100%; 
+}
+input{
+  margin: 10px;
+}
+.nav{
+    background-color: rgb(14, 143, 126);
+   padding: 10px;
+   color: white;
+ }
+ .title{
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 5px;
+    margin-left: 20px;
+    width: 22%;
+    height:50px;
+    text-align: center;
+  }
+ 
+ li{
+   display: inline-block;
+   padding: 10px;
+   margin-left: 20px;
+   font-size: 20px;
+ }
+ li:hover{
+   border: 1px solid rgb(186, 243, 235);
+   border-radius: 10px;
+       cursor: pointer;
+ }
+ #submit, #delete{
+  border: 1px solid  rgb(14, 143, 126);
+  width: 26%;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 20px; 
+  color: grey;
+  background-color: white;
+}
+#submit, #delete:hover{
+  background-color:rgb(14, 143, 126);
+  color:white
+}
+#delete{
+  border: 1px solid  rgb(14, 143, 126);
+  width: 20%;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 20px; 
+  color: grey;
+  background-color: white;
+}
+#delete:hover{
+  background-color:rgb(14, 143, 126);
+  color:white
+}
