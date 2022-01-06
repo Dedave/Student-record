@@ -1,22 +1,23 @@
 <div class="row nav">
-<div class="col-md-6 col-xl-6">
-   <h3 class="title">STUDENTIA</h3>
-</div>
-<div class="col-md-6 col-xl-6">
-   <ul>
-      <li routerLink="/">Home</li>
-      <li routerLink="/create-new">Create New </li>
-      <li routerLink="/">View All</li>
-   </ul>
-</div>
-</div>
+   <div class="col-md-6 col-xl-6">
+      <h3 class="title">STUDENTIA</h3>
+   </div>
+   <div class="col-md-6 col-xl-6">
+      <ul>
+       <li routerLink="/">Home</li>
+       <li routerLink="/create-new">Create New Record</li>
+       <li routerLink="/">View All Record</li>
+      </ul>
+   </div>
+   </div>
 <div class="container">
     <!-- <div >   
        <button type="submit" id="submit" (click)="AddNew()">Add New Student </button>
  </div> -->
- <h3 class="lbl">List of Students</h3><br>
-    <table class="table table-striped"> 
-        <tr>    
+ <div class="row">
+ <h3 class="lbl">List of Students</h3><hr>
+    <table class="table table-borderless"> 
+        <tr>   
            <th>Name</th>
            <th>Faculty</th>
            <th>Department</th>
@@ -32,6 +33,7 @@
                <td>{{student.sex}} </td>
        </tr> 
     </table>
+   </div>
     <!-- <app-create-new *ngIf="isOpen" (closeModal) = "close()"></app-create-new> -->
    
    

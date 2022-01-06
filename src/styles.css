@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+.nav{
+    background-color: rgb(14, 143, 126);
+   padding: 10px;
+   color: white;
+ }
+ .title{
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 5px;
+    margin-left: 20px;
+    width: 22%;
+    height:50px;
+    text-align: center;
+  }
+ li{
+   display: inline-block;
+   padding: 10px;
+   margin-left: 20px;
+   font-size: 20px;
+ }
+ li:hover{
+   border: 1px solid rgb(186, 243, 235);
+   border-radius: 10px;
+       cursor: pointer;
+ }

@@ -6,7 +6,7 @@ import { ViewByIdComponent } from './pages/view-by-id/view-by-id.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'view-by-id/:abc', component: ViewByIdComponent},
+  {path:'view-by-id/:id', component: ViewByIdComponent},
   {path:'create-new', component: CreateNewComponent}
 ];
 

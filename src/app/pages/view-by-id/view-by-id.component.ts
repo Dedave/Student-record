@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewByIdComponent implements OnInit {
   student:any;
-  oppp: any;
+  details: any;
   body: any;
   isOpen = false;
   showEdit = true;
@@ -20,9 +20,9 @@ export class ViewByIdComponent implements OnInit {
     this.activeRoute.params.subscribe((result)=>{
       //debugger;
       
-      this.oppp = result['abc'];
+      this.details = result['id'];
 
-      this.activity.getStudentId(this.oppp).subscribe((result: any)=>{
+      this.activity.getStudentId(this.details).subscribe((result: any)=>{
         console.log(result)
         this.student = result;
         this.faculty=this.student.faculty
@@ -47,6 +47,7 @@ export class ViewByIdComponent implements OnInit {
     this.activity.EditStudentId(this.student._id ,this.student).subscribe((result)=>{
       if(result=='success'){
         this.isOpen = false;
+        this.showEdit = true;
       }
       }, err=>{
         alert(err.error.msg);
