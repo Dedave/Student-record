@@ -1,8 +1,8 @@
 <div class="row nav">
-  <div class="col-md-6 col-xl-6">
+  <div class="col-md-6">
      <h3 class="title">STUDENTIA</h3>
   </div>
-  <div class="col-md-6 col-xl-6">
+  <div class="col-md-6">
      <ul>
       <li routerLink="/">Home</li>
       <li routerLink="/create-new">Create New Record</li>
@@ -15,9 +15,9 @@
   <div class="card">
     
        <div class="card-body">
-        <form class="form-horizontal m-t-30">
+        <form class="form-horizontal m-t-30" *ngIf="student && student.first_name">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6">
                   <h3 style="color: rgb(14, 143, 126);">Student Record</h3><hr>
             <label for="name" id="identity">Name: <span>{{student.first_name}} {{student.last_name}}</span></label><br>
          <label for="name" id="faculty"> Faculty: <span>{{faculty}}</span> </label><br>
@@ -31,20 +31,20 @@
           </div>
            
            
-          <div class="col-sm-6" *ngIf="isOpen">
+          <div class="col-sm-12 col-md-6" *ngIf="isOpen">
               <h3 style="text-align: center;color: rgb(14, 143, 126);">Edit Record</h3><hr>
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6">
               <label for="first_name" id="first_name" >First Name: </label><br>
               <input type="text" id="first_name" placeholder="{{student.first_name}}" [(ngModel)]="student.first_name" [ngModelOptions]="{standalone: true}"/> <br>
               <label for="last_name" id="last_name" >Last Name: </label><br>
               <input type="text" id="last_name" placeholder="{{student.last_name}}" [(ngModel)]="student.last_name" [ngModelOptions]="{standalone: true}"/><br>
  
-         <label for="faculty" id="faculty"> Faculty:</label><br>
+         <label for="faculty" id="faculty">Faculty:</label><br>
        
          <input type="text" id="faculty" placeholder="{{student.faculty}}" [(ngModel)]="student.faculty" [ngModelOptions]="{standalone: true}"/><br>
          </div>
-        <div class="col-sm-6"> 
+        <div class="col-sm-12 col-md-6"> 
           <label for="department" id="department"> Department:</label><br>
           <input type="text" id="department" placeholder="{{student.department}}" [(ngModel)]="student.department" [ngModelOptions]="{standalone: true}"/><br>
         <label for="sex" id="sex"> Sex:</label><br>

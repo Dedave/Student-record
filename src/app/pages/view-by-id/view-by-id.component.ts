@@ -23,7 +23,6 @@ export class ViewByIdComponent implements OnInit {
       this.details = result['id'];
 
       this.activity.getStudentId(this.details).subscribe((result: any)=>{
-        console.log(result)
         this.student = result;
         this.faculty=this.student.faculty
         
@@ -44,11 +43,12 @@ export class ViewByIdComponent implements OnInit {
     // level: '',
     // sex:''
     //   }
+    
     this.activity.EditStudentId(this.student._id ,this.student).subscribe((result)=>{
-      if(result=='success'){
         this.isOpen = false;
         this.showEdit = true;
-      }
+        console.log(result)
+      
       }, err=>{
         alert(err.error.msg);
       
