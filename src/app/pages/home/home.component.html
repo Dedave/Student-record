@@ -8,7 +8,11 @@
        <li routerLink="/create-new">Create New Record</li>
        <li routerLink="/">View All Record</li>
       </ul>
+    </div>
    </div>
+   <div class="contain">
+      <i class="bi bi-search"></i>
+      <input type="text" id="search"  placeholder="Search student..." [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}"/><br>
    </div>
 <div class="container">
     <!-- <div >   
@@ -21,16 +25,17 @@
            <th>Name</th>
            <th>Faculty</th>
            <th>Department</th>
-           <th>Level</th>
            <th>Sex</th>
+           <th>Level</th>
+           
         </tr>
 
-        <tr class="details" *ngFor='let student of students' (click)='getstudentId(student._id)'>
-               <td>{{student.first_name}} {{student.last_name}}</td>
-               <td>{{student.faculty}}</td>
-               <td>{{student.department}}</td>
+        <tr class="details" *ngFor='let student of students | filter: searchText' (click)='getstudentId(student._id)'>
+               <td>{{student.first_name  | titlecase}} {{student.last_name  | titlecase}}</td>
+               <td>{{student.faculty  | titlecase}}</td>
+               <td>{{student.department  | titlecase}}</td>
+               <td>{{student.sex}}</td>
                <td>{{student.level}}</td>
-               <td>{{student.sex}} </td>
        </tr> 
     </table>
    </div>

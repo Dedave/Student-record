@@ -10,7 +10,9 @@ border-radius: 9px;
   padding-bottom: 30px;
   height: 100%; 
 }
-
+i{
+  font-size:70px;
+}
 input{
    width: 100%;
    height: calc(1.5em + 0.75rem + 2px);
@@ -69,6 +71,15 @@ label{
 #submit, #delete:hover{
   background-color:rgb(14, 143, 126);
   color:white
+}
+.svg{
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+}
+.svg:hover{
+  color: rgb(14, 143, 126);
+  cursor:pointer;
 }
 #submitt{
   border: 1px solid  rgb(14, 143, 126);

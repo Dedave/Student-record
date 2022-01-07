@@ -13,12 +13,12 @@ export class ViewByIdComponent implements OnInit {
   isOpen = false;
   showEdit = true;
   faculty: any;
+    htmlStr: any;
+ 
  
   constructor(private activity: ActivityService, private activeRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
+ ngOnInit(): void {
     this.activeRoute.params.subscribe((result)=>{
-      //debugger;
       
       this.details = result['id'];
 
@@ -45,9 +45,9 @@ export class ViewByIdComponent implements OnInit {
     //   }
     
     this.activity.EditStudentId(this.student._id ,this.student).subscribe((result)=>{
+      alert("Student Record Updated")
         this.isOpen = false;
         this.showEdit = true;
-        console.log(result)
       
       }, err=>{
         alert(err.error.msg);
@@ -56,10 +56,10 @@ export class ViewByIdComponent implements OnInit {
   }
   delById(){
     this.activity.delStudentById(this.student._id ).subscribe((result: any)=>{
-      this.student = result.student;
-      this.isOpen =false;
-      ;
-    
+    this.student = result.student;
+    this.htmlStr = "Student Record Deleted";
+    this.isOpen =false;
+     
     })
   }
   
