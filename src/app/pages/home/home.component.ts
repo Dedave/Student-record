@@ -11,7 +11,6 @@ import { ActivityService } from 'src/app/services/activity.service';
 export class HomeComponent implements OnInit {
   students: any;
   searchText = '';
-
   constructor(private activity: ActivityService, private  _route: Router, ) { }
 
   ngOnInit(): void {
