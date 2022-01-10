@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from 'src/app/services/activity.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service'
 @Component({
   selector: 'app-view-by-id',
   templateUrl: './view-by-id.component.html',
@@ -13,10 +14,8 @@ export class ViewByIdComponent implements OnInit {
   isOpen = false;
   showEdit = true;
   faculty: any;
-    htmlStr: any;
- 
- 
-  constructor(private activity: ActivityService, private activeRoute: ActivatedRoute) { }
+    
+ constructor(private activity: ActivityService, private activeRoute: ActivatedRoute, private notifyService : NotificationService, private  _route: Router) { }
  ngOnInit(): void {
     this.activeRoute.params.subscribe((result)=>{
       
@@ -45,7 +44,8 @@ export class ViewByIdComponent implements OnInit {
     //   }
     
     this.activity.EditStudentId(this.student._id ,this.student).subscribe((result)=>{
-      alert("Student Record Updated")
+
+      this.notifyService.showSuccess("Student Record Updated!!", "Update Successful")
         this.isOpen = false;
         this.showEdit = true;
       
@@ -57,8 +57,8 @@ export class ViewByIdComponent implements OnInit {
   delById(){
     this.activity.delStudentById(this.student._id ).subscribe((result: any)=>{
     this.student = result.student;
-    this.htmlStr = "Student Record Deleted";
-    this.isOpen =false;
+    this.notifyService.showSuccess("Student Record Deleted!!", "Delete Successful")
+    //this._route.navigateByUrl('/create-new')
      
     })
   }

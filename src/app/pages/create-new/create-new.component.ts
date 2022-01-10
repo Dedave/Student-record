@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivityService } from 'src/app/services/activity.service';
+import { NotificationService } from 'src/app/services/notification.service'
 @Component({
   selector: 'app-create-new',
   templateUrl: './create-new.component.html',
@@ -9,7 +10,7 @@ import { ActivityService } from 'src/app/services/activity.service';
 export class CreateNewComponent implements OnInit {
   // @Output() closeModal = new EventEmitter<boolean>();
   htmlStr: any;
-  constructor( private activity: ActivityService, private formBuilder: FormBuilder,) { }
+  constructor( private activity: ActivityService, private formBuilder: FormBuilder, private notifyService : NotificationService) { }
   studentForm = this.formBuilder.group({
     first_name: '',
     last_name: '',
@@ -25,22 +26,14 @@ export class CreateNewComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  // close(){
-  //   this.closeModal.emit(false)
-
-  // }
   onSubmit(){
     
     this.activity.createNew(this.studentForm.value).subscribe((result)=>{
-    
-        // this.closeModal.emit(false)
-        // console.log(result)
-        
-        this.htmlStr = 'Student record created';
+        this.notifyService.showSuccess("Student record created successfully!!", "Creation Successful")
         this.studentForm.reset();
     
       }, err=>{
-        this.htmlStr = "Please make sure your inputs are correct";
+        alert("Please make sure your inputs are correct");
       
     })
   }
