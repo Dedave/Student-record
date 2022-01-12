@@ -45,7 +45,7 @@ export class ViewByIdComponent implements OnInit {
     
     this.activity.EditStudentId(this.student._id ,this.student).subscribe((result)=>{
 
-      this.notifyService.showSuccess("Student Record Updated!!", "Update Successful")
+      this.notifyService.showSuccess("Student Record Updated!!", "Update Successful");
         this.isOpen = false;
         this.showEdit = true;
       
@@ -57,7 +57,7 @@ export class ViewByIdComponent implements OnInit {
   delById(){
     this.activity.delStudentById(this.student._id ).subscribe((result: any)=>{
     this.student = result.student;
-    this.notifyService.showSuccess("Student Record Deleted!!", "Delete Successful")
+    this.notifyService.showSuccess("Student Record Deleted!!", "Delete Successful");
     this._route.navigateByUrl('/')
      
     })
