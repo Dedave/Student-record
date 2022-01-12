@@ -58,7 +58,7 @@ export class ViewByIdComponent implements OnInit {
     this.activity.delStudentById(this.student._id ).subscribe((result: any)=>{
     this.student = result.student;
     this.notifyService.showSuccess("Student Record Deleted!!", "Delete Successful")
-    //this._route.navigateByUrl('/create-new')
+    this._route.navigateByUrl('/')
      
     })
   }
