@@ -21,7 +21,8 @@
  <div class="row">
  <h3 class="lbl">List of Students</h3><hr>
     <table class="table table-borderless"> 
-        <tr>   
+        <tr> 
+           <th>S/N</th>  
            <th>Name</th>
            <th>Faculty</th>
            <th>Department</th>
@@ -30,8 +31,9 @@
            
         </tr>
 
-        <tr class="details" *ngFor='let student of students | filter: searchText' (click)='getstudentId(student._id)'>
-               <td>{{student.first_name  | titlecase}} {{student.last_name  | titlecase}}</td>
+        <tr class="details" *ngFor='let student of students | filter: searchText; index as i' (click)='getstudentId(student._id)'>
+         <td>{{i + 1}}.</td>     
+         <td>{{student.first_name  | titlecase}} {{student.last_name  | titlecase}}</td>
                <td>{{student.faculty  | titlecase}}</td>
                <td>{{student.department  | titlecase}}</td>
                <td>{{student.sex | titlecase}}</td>
