@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivityService } from 'src/app/services/activity.service';
 import { NotificationService } from 'src/app/services/notification.service'
 @Component({
@@ -12,12 +12,12 @@ export class CreateNewComponent implements OnInit {
   htmlStr: any;
   constructor( private activity: ActivityService, private formBuilder: FormBuilder, private notifyService : NotificationService) { }
   studentForm = this.formBuilder.group({
-    first_name: '',
-    last_name: '',
-    faculty: '',
-    department: '',
-    level: '',
-    sex:''
+    first_name:['', Validators.required],
+    last_name: ['', Validators.required],
+    faculty:['', Validators.required],
+    department:['', Validators.required],
+    level: ['', Validators.required],
+    sex:['', Validators.required]  
   });
 
 

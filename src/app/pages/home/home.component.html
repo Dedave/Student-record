@@ -27,8 +27,7 @@
            <th>Faculty</th>
            <th>Department</th>
            <th>Sex</th>
-           <th>Level</th>
-           
+           <th>Level</th>   
         </tr>
 
         <tr class="details" *ngFor='let student of students | filter: searchText; index as i' (click)='getstudentId(student._id)'>
