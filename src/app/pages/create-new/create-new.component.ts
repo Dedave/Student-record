@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { ActivityService } from 'src/app/services/activity.service';
 import { NotificationService } from 'src/app/services/notification.service'
 @Component({
@@ -8,34 +8,37 @@ import { NotificationService } from 'src/app/services/notification.service'
   styleUrls: ['./create-new.component.css']
 })
 export class CreateNewComponent implements OnInit {
-  // @Output() closeModal = new EventEmitter<boolean>();
-  htmlStr: any;
+  studentForm: FormGroup | any;
+  isSubmitted = false;
   constructor( private activity: ActivityService, private formBuilder: FormBuilder, private notifyService : NotificationService) { }
-  studentForm = this.formBuilder.group({
-    first_name:['', Validators.required],
-    last_name: ['', Validators.required],
-    faculty:['', Validators.required],
-    department:['', Validators.required],
-    level: ['', Validators.required],
-    sex:['', Validators.required]  
-  });
 
-
-  initForm(){
-    
+  ngOnInit()
+  {
+    this.studentForm = this.formBuilder.group({
+      first_name: ['', [Validators.required, Validators.minLength(3)]],
+      last_name: ['', [Validators.required, Validators.minLength(3)]],
+      faculty: ['', [Validators.required, Validators.minLength(3)]],
+      department: ['', [Validators.required, Validators.minLength(3)]],
+      level: ['', Validators.required],
+      sex: ['', Validators.required]
+    });
   }
-  ngOnInit(): void {
+  get errorControl() {
+    return this.studentForm.controls;
   }
   onSubmit(){
-    
-    this.activity.createNew(this.studentForm.value).subscribe((result)=>{
+    this.isSubmitted = true;
+    if(!this.studentForm.valid){
+      return false;
+    } 
+    else{
+       this.activity.createNew(this.studentForm.value).subscribe((result)=>{
         this.notifyService.showSuccess("Student record created successfully!!", "Creation Successful")
         this.studentForm.reset();
-    
-      }, err=>{
-        alert("Please make sure your inputs are correct");
-      
-    })
+      })
+       return true;
+    }
+   
   }
   
 }

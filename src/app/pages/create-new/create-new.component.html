@@ -30,23 +30,64 @@
      <div class="card-body">
       <form class="form-horizontal m-t-30" [formGroup]="studentForm" novalidate (ngSubmit)="onSubmit()">
         <div class="row">
-              <div class="col-md-6 col-xl-6">
+              <div class="col-md-6 col-xl-6"> 
+                <div>
         <label for="name" id="firstname">First Name</label>
         <input type="text" id="firstname" formControlName="first_name" placeholder="First Name..."/>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.first_name.errors?.required">
+          First Name is required.
+   </span>
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.first_name.errors?.minlength">
+    First name should be minimum of 3 chars long.
+  </span>
+</div>
+<div>
         <label for="name" id="lastname">Last Name</label>
         <input type="text" id="lastname" formControlName="last_name" placeholder="Last Name..."/>
+
+        
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.last_name.errors?.required">
+      Last Name is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.last_name.errors?.minlength">
+      Last name should be minimum of 3 chars long.
+    </span>
+</div>
         <label for="name" id="sex">Sex&nbsp;</label>
         <select formControlName="sex" class="form-select">
             <option>Male</option>
             <option>Female</option>
         </select>
-        <!-- <input type="sex" id="sex" formControlName="password" placeholder="Password..."/> -->
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.sex.errors?.required">
+          Sex is required.
+        </span>
+
          </div>
        <div class="col-md-6 col-xl-6  ">
+         <div>
         <label for="name" id="faculty">Faculty</label>
         <input type="text" id="faculty"  formControlName="faculty" placeholder="Faculty..."/>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.faculty.errors?.required">
+          Faculty is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.faculty.errors?.minlength">
+          Faculty should be minimum of 3 chars long.
+        </span>
+</div>
+<div>
         <label for="name" id="department">Department</label>
         <input type="text" id="department" formControlName="department" placeholder="Department..."/>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.department.errors?.required">
+          Department is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.department.errors?.minlength">
+          Department should be minimum of 3 chars long.
+        </span>
+</div>
         <label for="name" id="level">Level&nbsp;</label>
         <select formControlName="level" class="form-select">
             <option>100</option>
@@ -55,6 +96,10 @@
             <option>400</option>
             <option>500</option>
         </select>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.level.errors?.required">
+          Level is required.
+        </span>
         <br><button type="submit" id="submit"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-plus svg" viewBox="0 0 16 16">
           <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
           <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>

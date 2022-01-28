@@ -33,7 +33,7 @@ input{
    background-clip: padding-box;
    border: 1px solid #ced4da;
    border-radius: 0.25rem;
-   margin-bottom: 10px;
+   margin-bottom: 6px;
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;  display: inline-block;
 }
 #submit{
@@ -90,4 +90,8 @@ input{
   }
   select{
     font-size: 0.8rem;
+  }
+  span{
+    color: red;
+    font-size: 14px;
   }
