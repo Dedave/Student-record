@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ActivityService } from 'src/app/services/activity.service';
 import { NotificationService } from 'src/app/services/notification.service'
 @Component({
@@ -7,9 +8,11 @@ import { NotificationService } from 'src/app/services/notification.service'
   templateUrl: './create-new.component.html',
   styleUrls: ['./create-new.component.css']
 })
-export class CreateNewComponent implements OnInit {
+export class CreateNewComponent implements OnInit, OnDestroy  {
   studentForm: FormGroup | any;
   isSubmitted = false;
+  subscription: Subscription | undefined;
+
   constructor( private activity: ActivityService, private formBuilder: FormBuilder, private notifyService : NotificationService) { }
 
   ngOnInit()
@@ -32,13 +35,16 @@ export class CreateNewComponent implements OnInit {
       return false;
     } 
     else{
-       this.activity.createNew(this.studentForm.value).subscribe((result)=>{
-        this.notifyService.showSuccess("Student record created successfully!!", "Creation Successful")
+     this.subscription =  this.activity.createNew(this.studentForm.value).subscribe((result)=>{
+         this.notifyService.showSuccess("Student record created successfully!!", "Creation Successful")
         this.studentForm.reset();
       })
        return true;
     }
    
   }
+   ngOnDestroy() {
+  this.subscription?.unsubscribe();
+ }
   
 }
